@@ -1,11 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useEffect } from 'react';
 import { useStore } from 'effector-react';
-import { user } from '../models/userModel';
+import { user, fetchUser } from '../models/userModel';
 
 const FullName = () => {
-    console.log('FullName render');
-    const {firstName, lastName} = useStore(user);
-    return <span>{`${firstName} ${lastName}`}</span>;
+  useEffect(() => {
+      // @ts-ignore
+      fetchUser()
+  }, []);
+
+
+  console.log('FullName render');
+  const { firstName, lastName } = useStore(user);
+  return <span>{`${firstName} ${lastName}`}</span>;
 };
 
 export default React.memo(FullName);

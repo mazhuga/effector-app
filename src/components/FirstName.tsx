@@ -6,7 +6,7 @@ type InputEvent = React.ChangeEvent<HTMLInputElement>;
 
 const FirstName = () => {
   console.log('FirstName render');
-  const value  = useStore(firstName);
+  const value = useStore(firstName);
 
   const handleChange = (e: InputEvent):void => {
     // @ts-ignore
